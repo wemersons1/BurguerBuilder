@@ -1,0 +1,173 @@
+
+
+body{
+    background: rgb(252, 247, 247);
+}
+
+h2{
+    margin-top:0px;
+    
+    margin-left: 75px;
+    color: white;
+    border-radius: 5px;
+    background: greenyellow;
+    width: 34%;
+    text-align: center;
+    padding: 10px;
+}
+
+.container{
+    width: 80%;
+    margin: 0 auto;
+    background:white;
+}
+.painel{
+ display: flex;
+}
+.hamburguer{
+    margin: 50px 50px 30px 0;
+    width: 50%;
+}
+
+.pao{
+    width: 100%;
+}
+.pao-head{
+    width: 100%;
+    margin-bottom: 5px;
+}
+
+.pao-footer{
+    width: 100%;
+    transform: rotate(180deg);
+    margin-top: 5px;
+}
+
+.itens{
+    width: 350px;
+    margin-top: 60px;
+}
+
+.mais, .menos{
+    font-size: 1.2em;
+    color: white;
+    border-radius: 7px;
+    cursor: pointer;
+    
+}
+.mais{
+    padding: 6px 15px;
+    background: rgb(66, 66, 236);
+}
+.menos{
+    padding: 6px 17px;
+    background: rgb(231, 67, 67);
+}
+.mais:hover{
+    filter: brightness(0.7);
+}
+
+.menos:hover{
+    filter: brightness(0.7);
+}
+
+.opcoes{
+    margin: 10px;
+}
+
+span.opcao{
+    margin-left: 10px;
+    color: rgb(12, 11, 11);
+}
+input.qtd{
+    width: 40px;
+    background: white;
+    border-radius: 5px;
+    height: 22px;
+    text-align: center;
+    font-size: 1.0em;
+}
+input.focus{
+    border: 2px solid rgb(27, 90, 207);
+    
+}
+.login{
+    width:50%;
+    text-align: center;
+    display:none;
+    margin-top: 50px;
+}
+.endereco{
+    width:50%;
+    text-align: center;
+    
+}
+input.campo{
+    margin: 5px;
+    text-align: center;
+    font-size: 1.4em;
+    width: 100%;
+}
+button.botao{
+
+    background: rgb(85, 156, 238);
+    border-radius: 10px;
+    
+    color: white;
+    letter-spacing: 1px;
+    font-weight: bold;
+    text-transform: uppercase;
+    padding:7px 30px;
+}
+button.botao:hover{
+    filter: brightness(0.7);
+    cursor: pointer;
+}
+
+.mudar-opc{
+    text-align: center;
+    margin-top: 20px;
+}
+.adc-carne, .adc-bacon,.adc-queijo, .adc-presunto{
+    border-radius: 5px;
+    border: 2px solid black;
+    margin: 5px auto;
+}
+.adc-queijo, .adc-presunto{
+    height: 10px;
+    width:72%;
+}
+.adc-carne, .adc-bacon{
+    height: 20px;
+    width:72%;
+}
+
+.adc-queijo{
+    background: yellow;
+}
+
+.adc-presunto{
+    background: rgb(250, 192, 255);
+}
+
+.adc-carne{
+    background:rgb(51, 32, 32);
+}
+
+.adc-bacon{
+    background: orangered;
+}
+#valor{
+    color: green;
+    font-size: 2em;
+    padding:10px;
+    text-indent: 30px;
+    font-weight: bold;
+    background: white;
+    border: none;
+}
+.erro{
+    color: rgb(138, 12, 12);
+    font-size:0.8em;
+    margin-top: 10px;
+}

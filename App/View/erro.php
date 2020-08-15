@@ -1,0 +1,1 @@
+<h1 class="bg-danger text-white">Ops, nada encontrado! é necessário login para acessar páginas privilegiadas</h1>

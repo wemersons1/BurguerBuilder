@@ -1,0 +1,21 @@
+<html>
+    <head>
+        <title>Consumindo a Api do IGBE</title>
+        <script>
+            let ajax = new XMLHttpRequest();
+            ajax.open('GET', "https://servicodados.ibge.gov.br/api/v1/localidades/distritos");
+            ajax.send();
+            ajax.onreadystatechange = () =>{
+                if(ajax.readyState === 4 && ajax.status ==="200"){
+                    ,21
+                }
+            }
+        </script>
+    </head>
+    <body>
+        <div id="conteudo">
+
+        </div>
+
+    </body>
+</html>
