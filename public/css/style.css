@@ -4,6 +4,11 @@ body{
     background: rgb(252, 247, 247);
 }
 
+ul{
+    display:flex;
+    list-style:none;
+}
+
 h2{
     margin-top:0px;
     

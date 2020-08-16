@@ -2,11 +2,11 @@
 namespace App\Controller;
 use \App\Classes\Helpers;
 use \App\Model\Endereco;
-use \App\Model\Hamburguer;
+use \App\Model\Pedidos;
 use \App\Classes\Login;
 session_start();
 
-class HamburguerController{
+class PedidosController{
     public function indexAction(){
         Helpers::render("index", "Faça seu pedido!", array());
     }
@@ -26,14 +26,24 @@ class HamburguerController{
     public function gravarPedidoAction(){
         if(Login::logado()){
             $dados = $_POST;
+            $endereco = new Endereco();
+            $endereco->gravarEndereco($dados);
             $dados['id_usuario'] = Login::id();
-            $hamburguer = new Hamburguer();
+            $dados['id_endereco'] = $endereco->getId($dados);
+            $hamburguer = new Pedidos();
             $hamburguer->gravarPedido($dados);
             Helpers::render("home", "Faça seu pedido!", array());
         }
         else{
             Helpers::render("erro", "Sem acesso", array());
         }
+    }
+
+    public function listarPedidosAction(){
+        $pedidos = new Pedidos();
+        $dados = $pedidos->listarPedidos(Login::id());
+        
+        Helpers::render("lista", "Lista de pedidos", $dados);
     }
 
 }

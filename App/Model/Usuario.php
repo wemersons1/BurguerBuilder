@@ -2,7 +2,7 @@
 
 
 use \App\Model\Bd;
-use \Appp\Model\Hamburguer;
+use \App\Model\Pedidos;
 use \App\Model\Endereco;
 
 namespace App\Model;
@@ -35,14 +35,17 @@ class Usuario extends Bd{
     public function logar($dados){    
      
         if($dados['opcao']=='logar'){
-            $id = $this->getId($dados);
-            $dados['id_usuario'] = $id;
+            
             if($this->consultaLogin()){
+                $id = $this->getId($dados);
                 \App\Classes\Login::logar($id);
                 $endereco = new Endereco();
-                $endereco->gravarEndereco($dados);                
-                $hamburguer = new Hamburguer();
-                $hamburguer->gravarPedido($dados);
+                $endereco->gravarEndereco($dados);
+                $id = $this->getId($dados);
+                $dados['id_usuario'] = $id;
+                $dados['id_endereco'] = $endereco->getId($dados);                
+                $pedido = new Pedidos();
+                $pedido->gravarPedido($dados);
             }
             else{                
                 \App\Classes\Login::deslogar();
@@ -66,19 +69,17 @@ class Usuario extends Bd{
         $endereco = new Endereco();
         $endereco->gravarEndereco($dados);
         $id_endereco = $endereco->getId($dados);
+        $dados['id_endereco'] = $id_endereco;
 
-        $query = "INSERT INTO usuario (user, pass, id_endereco) values (:USER, :PASS, :ENDERECO)";
+        $query = "INSERT INTO usuario (user, pass) values (:USER, :PASS)";
         $stmt = $this->conexao->prepare($query);
         $stmt->bindValue(":USER", $dados['user']);
         $stmt->bindValue(":PASS", $dados['pass']);
-        $stmt->bindValue(":ENDERECO", $id_endereco);
         $stmt->execute();
-
         $id_usuario = $this->getId($dados);
-
         $dados['id_usuario'] = $id_usuario;
-        $hamburguer = new Hamburguer();
-        $hamburguer->gravarPedido($dados);
+        $pedido = new Pedidos();
+        $pedido->gravarPedido($dados);
     }
 
     private function getId($dados){

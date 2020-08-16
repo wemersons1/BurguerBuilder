@@ -17,7 +17,12 @@ class Endereco extends Bd{
     }
  
     public function getId($dados){
-        $query = "SELECT id_endereco from enderecos where cidade = :CIDADE and bairro = :BAIRRO and complemento = :COMPLEMENTO and cep = :CEP";
+        $query = "SELECT id FROM enderecos WHERE 
+        cidade = :CIDADE AND
+        bairro = :BAIRRO AND 
+        complemento = :COMPLEMENTO AND 
+        cep = :CEP";
+        
         $stmt = $this->conexao->prepare($query);
         $stmt->bindValue(":CIDADE", $dados['cidade']);
         $stmt->bindValue(":BAIRRO", $dados['bairro']);
@@ -25,7 +30,7 @@ class Endereco extends Bd{
         $stmt->bindValue(":CEP", $dados['cep']);
         $stmt->execute();
         $id = $stmt->fetch();
-
+        
         return $id[0];
     }
 

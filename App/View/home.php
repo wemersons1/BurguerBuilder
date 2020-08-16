@@ -1,4 +1,16 @@
-<a class="d-block text-right mt-2 text-danger" href="/logout">Logout</a>
+<nav>
+    <ul>
+        <li>
+             <a class="text-right text-info" href="/listarpedidos">Meus pedidos</a>
+        </li>
+        <li style="margin-left:auto">
+            <a class="text-right text-danger nav-link" href="/logout">Logout</a>
+        </li>
+    </ul>
+</nav>
+
+
+
 <p class="text-light text-center mt-2 bg-success">Pedido realizado com sucesso</p>
 
 <div class="painel">
